@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/ian-vannman/n8n-nodes-google-drive-file-text.git"
   },
-  "main": "dist/nodes/GoogleDriveFileText/GoogleDriveFileText.node.js",
+  "main": "dist/nodes/GoogleDriveFile/GoogleDriveFile.node.js",
   "scripts": {
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
@@ -37,7 +37,7 @@
     "n8nNodesApiVersion": 1,
     "credentials": [],
     "nodes": [
-      "dist/nodes/GoogleDriveFileText/GoogleDriveFileText.node.js"
+      "dist/nodes/GoogleDriveFile/GoogleDriveFile.node.js"
     ]
   },
   "devDependencies": {

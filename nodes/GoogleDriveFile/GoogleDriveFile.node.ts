@@ -67,17 +67,17 @@ function findAvailableExportLink(exportLinks: any, preferredMimeTypes: string[])
         return null;
 }
 
-export class GoogleDriveFileText implements INodeType {
+export class GoogleDriveFile implements INodeType {
         description: INodeTypeDescription = {
-                displayName: 'Google Drive File Text',
-                name: 'googleDriveFileText',
+                displayName: 'Google Drive File',
+                name: 'googleDriveFile',
                 icon: 'file:googledrive.svg',
                 group: ['transform'],
                 version: 1,
                 subtitle: '={{$parameter["operation"]}}',
                 description: 'Fetch Google Drive file metadata and content',
                 defaults: {
-                        name: 'Google Drive File Text',
+                        name: 'Google Drive File',
                 },
                 inputs: ['main'],
                 outputs: ['main'],
