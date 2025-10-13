@@ -11,6 +11,15 @@ This is a community node package for n8n workflow automation platform that enabl
 
 ## Recent Changes
 
+### Version 1.0.4 (October 2025)
+- **New content fetching operation**: Added "Get Content" operation to fetch document content as strings
+  - Google Docs → Markdown (with fallback to plain text)
+  - Google Sheets → CSV
+  - Google Slides → Plain text
+- **Smart export format selection**: Implements fallback logic to try multiple export formats (text/markdown → text/x-markdown → text/plain for Docs)
+- **Enhanced error handling**: Provides clear error messages for unsupported file types and missing export links
+- **Dual operation support**: Node now supports both "Get Metadata" and "Get Content" operations
+
 ### Version 1.0.3 (October 2025)
 - **Fixed URL parsing for all Google Workspace document types**: Rewrote URL parser using proper URL API and path segment logic instead of brittle regex patterns
 - **Comprehensive URL support**: Now handles Google Docs, Sheets, Slides, Forms URLs with all variations:
@@ -44,7 +53,17 @@ The project follows n8n's community node package conventions with TypeScript-bas
 
 **Rationale**: This architecture allows the node to be discovered and loaded by n8n's plugin system automatically when installed as an npm package.
 
-**Single Operation Design**: The node implements a focused operation - fetching file metadata. This simplicity reduces complexity and makes the node easier to maintain and test.
+**Dual Operation Design**: The node supports two complementary operations:
+1. **Get Metadata**: Fetches complete file metadata from Google Drive API
+2. **Get Content**: Exports and retrieves document content as strings
+
+**Content Export Strategy**: 
+- Uses Google Drive's `exportLinks` from metadata response to determine available formats
+- Implements fallback logic for format selection (e.g., Docs: text/markdown → text/x-markdown → text/plain)
+- Returns content as strings, not binary data, for easy workflow integration
+- Supports Google Docs (Markdown), Sheets (CSV), and Slides (Plain Text)
+
+**Rationale**: The dual operation design maintains simplicity while expanding functionality. Both operations share the same file ID extraction logic, and the content operation leverages metadata retrieval internally.
 
 ### Authentication Architecture
 **Built-in n8n Credentials**: Uses n8n's built-in `googleDriveOAuth2Api` credential type directly (no custom credentials).
