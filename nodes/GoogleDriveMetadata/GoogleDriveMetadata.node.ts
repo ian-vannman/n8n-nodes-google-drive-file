@@ -24,21 +24,21 @@ function extractFileIdFromUrl(input: string): string | null {
 
         try {
                 const urlObj = new URL(input);
-                
+
                 if (!['docs.google.com', 'drive.google.com'].includes(urlObj.hostname)) {
                         return null;
                 }
 
                 const pathSegments = urlObj.pathname.split('/').filter(s => s.length > 0);
-                
+
                 const dIndex = pathSegments.indexOf('d');
                 if (dIndex !== -1 && dIndex < pathSegments.length - 1) {
                         const nextSegment = pathSegments[dIndex + 1];
-                        
+
                         if (nextSegment === 'e' && dIndex < pathSegments.length - 2) {
                                 return pathSegments[dIndex + 2];
                         }
-                        
+
                         return nextSegment;
                 }
         } catch (e) {
