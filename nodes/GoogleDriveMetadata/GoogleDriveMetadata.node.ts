@@ -48,6 +48,25 @@ function extractFileIdFromUrl(input: string): string | null {
         return null;
 }
 
+function getExportMimeTypes(googleMimeType: string): string[] | null {
+        const mimeTypeMap: { [key: string]: string[] } = {
+                'application/vnd.google-apps.document': ['text/markdown', 'text/x-markdown', 'text/plain'],
+                'application/vnd.google-apps.spreadsheet': ['text/csv'],
+                'application/vnd.google-apps.presentation': ['text/plain'],
+        };
+        
+        return mimeTypeMap[googleMimeType] || null;
+}
+
+function findAvailableExportLink(exportLinks: any, preferredMimeTypes: string[]): { url: string; mimeType: string } | null {
+        for (const mimeType of preferredMimeTypes) {
+                if (exportLinks[mimeType]) {
+                        return { url: exportLinks[mimeType], mimeType };
+                }
+        }
+        return null;
+}
+
 export class GoogleDriveMetadata implements INodeType {
         description: INodeTypeDescription = {
                 displayName: 'Google Drive Metadata',
@@ -69,6 +88,25 @@ export class GoogleDriveMetadata implements INodeType {
                         },
                 ],
                 properties: [
+                        {
+                                displayName: 'Operation',
+                                name: 'operation',
+                                type: 'options',
+                                options: [
+                                        {
+                                                name: 'Get Metadata',
+                                                value: 'getMetadata',
+                                                description: 'Retrieve complete metadata for a Google Drive file',
+                                        },
+                                        {
+                                                name: 'Get Content',
+                                                value: 'getContent',
+                                                description: 'Fetch the file content as a string (Docs→Markdown, Sheets→CSV, Slides→Plain Text)',
+                                        },
+                                ],
+                                default: 'getMetadata',
+                                description: 'The operation to perform',
+                        },
                         {
                                 displayName: 'Input Type',
                                 name: 'inputType',
@@ -123,6 +161,7 @@ export class GoogleDriveMetadata implements INodeType {
 
                 for (let i = 0; i < items.length; i++) {
                         try {
+                                const operation = this.getNodeParameter('operation', i) as string;
                                 const inputType = this.getNodeParameter('inputType', i) as string;
 
                                 let fileId: string;
@@ -141,7 +180,7 @@ export class GoogleDriveMetadata implements INodeType {
                                         fileId = this.getNodeParameter('fileId', i) as string;
                                 }
 
-                                const options = {
+                                const metadataOptions = {
                                         method: 'GET' as const,
                                         url: `https://www.googleapis.com/drive/v3/files/${fileId}`,
                                         qs: {
@@ -151,16 +190,70 @@ export class GoogleDriveMetadata implements INodeType {
                                         json: true,
                                 };
 
-                                const response = await this.helpers.requestOAuth2.call(
+                                const metadata = await this.helpers.requestOAuth2.call(
                                         this,
                                         'googleDriveOAuth2Api',
-                                        options,
-                                );
+                                        metadataOptions,
+                                ) as any;
 
-                                returnData.push({
-                                        json: response as any,
-                                        pairedItem: { item: i },
-                                });
+                                if (operation === 'getMetadata') {
+                                        returnData.push({
+                                                json: metadata,
+                                                pairedItem: { item: i },
+                                        });
+                                } else if (operation === 'getContent') {
+                                        const mimeType = metadata.mimeType;
+                                        const preferredMimeTypes = getExportMimeTypes(mimeType);
+
+                                        if (!preferredMimeTypes) {
+                                                throw new NodeOperationError(
+                                                        this.getNode(),
+                                                        `Unsupported file type: ${mimeType}. Only Google Docs, Sheets, and Slides are supported for content export.`,
+                                                        { itemIndex: i },
+                                                );
+                                        }
+
+                                        const exportLinks = metadata.exportLinks;
+                                        if (!exportLinks) {
+                                                throw new NodeOperationError(
+                                                        this.getNode(),
+                                                        `No export links available for this file. It may not be a Google Workspace document.`,
+                                                        { itemIndex: i },
+                                                );
+                                        }
+
+                                        const exportInfo = findAvailableExportLink(exportLinks, preferredMimeTypes);
+                                        if (!exportInfo) {
+                                                throw new NodeOperationError(
+                                                        this.getNode(),
+                                                        `No compatible export format available. Tried: ${preferredMimeTypes.join(', ')}`,
+                                                        { itemIndex: i },
+                                                );
+                                        }
+
+                                        const contentOptions = {
+                                                method: 'GET' as const,
+                                                url: exportInfo.url,
+                                                json: false,
+                                        };
+
+                                        const content = await this.helpers.requestOAuth2.call(
+                                                this,
+                                                'googleDriveOAuth2Api',
+                                                contentOptions,
+                                        ) as string;
+
+                                        returnData.push({
+                                                json: {
+                                                        fileId,
+                                                        fileName: metadata.name,
+                                                        mimeType,
+                                                        exportFormat: exportInfo.mimeType,
+                                                        content,
+                                                },
+                                                pairedItem: { item: i },
+                                        });
+                                }
                         } catch (error) {
                                 if (this.continueOnFail()) {
                                         returnData.push({

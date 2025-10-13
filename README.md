@@ -27,9 +27,17 @@ npm install n8n-nodes-google-drive-file-metadata
 
 ### Google Drive Metadata
 
-- **Fetch File Metadata**: Retrieve complete metadata for a Google Drive file using either:
-  - File URL (e.g., `https://drive.google.com/file/d/FILE_ID/view`)
-  - File ID (e.g., `1a2b3c4d5e6f7g8h9i0j`)
+This node supports two operations:
+
+1. **Get Metadata**: Retrieve complete metadata for a Google Drive file
+2. **Get Content**: Fetch the file content as a string in the appropriate format:
+   - Google Docs → Markdown format
+   - Google Sheets → CSV format
+   - Google Slides → Plain text format
+
+Both operations accept file input as either:
+- File URL (e.g., `https://drive.google.com/file/d/FILE_ID/view`)
+- File ID (e.g., `1a2b3c4d5e6f7g8h9i0j`)
 
 ## Credentials
 
@@ -49,20 +57,43 @@ This node uses the built-in **Google Drive OAuth2 API** credentials in n8n. You'
 
 1. Add the "Google Drive Metadata" node to your workflow
 2. Connect your Google Drive OAuth2 API credentials
-3. Choose input type:
+3. Select the operation:
+   - **Get Metadata**: Returns complete file metadata
+   - **Get Content**: Returns the file content as a string
+4. Choose input type:
    - **File URL**: Paste the full Google Drive file URL
    - **File ID**: Enter just the file ID
-4. Execute the node to retrieve complete file metadata
+5. Execute the node
 
-## Metadata Returned
+## Output
 
-The node returns all available metadata fields including:
+### Get Metadata Operation
+
+Returns all available metadata fields including:
 
 - Basic info: name, mimeType, size, createdTime, modifiedTime
 - Owner and sharing information
 - File capabilities and permissions
 - Extended properties
+- Export links for different formats
 - And all other available fields from the Google Drive API
+
+### Get Content Operation
+
+Returns a JSON object with:
+
+- `fileId`: The Google Drive file ID
+- `fileName`: The name of the file
+- `mimeType`: The Google file type
+- `exportFormat`: The format used for export (text/markdown, text/csv, or text/plain)
+- `content`: The file content as a string
+
+**Supported file types:**
+- Google Docs (exported as Markdown, with fallback to Plain Text)
+- Google Sheets (exported as CSV)
+- Google Slides (exported as Plain Text)
+
+Note: The node will attempt to use the preferred export format and fall back to alternative formats if the preferred one is not available.
 
 ## Resources
 
