@@ -54,7 +54,7 @@ function getExportMimeTypes(googleMimeType: string): string[] | null {
                 'application/vnd.google-apps.spreadsheet': ['text/csv'],
                 'application/vnd.google-apps.presentation': ['text/plain'],
         };
-        
+
         return mimeTypeMap[googleMimeType] || null;
 }
 

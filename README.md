@@ -14,13 +14,13 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 1. Go to **Settings > Community Nodes** in n8n
 2. Select **Install a community node**
-3. Enter `n8n-nodes-google-drive-file-metadata`
+3. Enter `n8n-nodes-google-drive-file-text`
 4. Click **Install**
 
 ### Manual Installation
 
 ```bash
-npm install n8n-nodes-google-drive-file-metadata
+npm install n8n-nodes-google-drive-file-text
 ```
 
 ## Operations
@@ -99,12 +99,12 @@ Note: The node will attempt to use the preferred export format and fall back to 
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 - [Google Drive API documentation](https://developers.google.com/drive/api/v3/reference/files)
-- [GitHub Repository](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata)
-- [Report Issues](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata/issues)
+- [GitHub Repository](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text)
+- [Report Issues](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text/issues)
 
 ## Version History
 
-See [CHANGELOG](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata/releases) for version history.
+See [CHANGELOG](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text/releases) for version history.
 
 ## License
 
