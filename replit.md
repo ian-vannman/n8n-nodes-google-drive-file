@@ -44,9 +44,9 @@ Preferred communication style: Simple, everyday language.
 
 ### Project Structure
 The project follows n8n's community node package conventions with TypeScript-based development:
-- **Source Code**: Located in `nodes/GoogleDriveMetadata/` directory containing TypeScript implementation
-- **Build Output**: Compiled JavaScript outputs to `dist/nodes/GoogleDriveMetadata/` directory
-- **Entry Point**: `package.json` main field points directly to `dist/nodes/GoogleDriveMetadata/GoogleDriveMetadata.node.js`
+- **Source Code**: Located in `nodes/GoogleDriveFileText/` directory containing TypeScript implementation
+- **Build Output**: Compiled JavaScript outputs to `dist/nodes/GoogleDriveFileText/` directory
+- **Entry Point**: `package.json` main field points directly to `dist/nodes/GoogleDriveFileText/GoogleDriveFileText.node.js`
 - **Assets**: Node icon (SVG) is copied from source to dist during build
 
 ### Node Architecture
