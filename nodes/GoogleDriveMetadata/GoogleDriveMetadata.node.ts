@@ -103,7 +103,7 @@ export class GoogleDriveMetadata implements INodeType {
                         try {
                                 const credentials = await this.getCredentials('googleDriveOAuth2Api');
                                 const inputType = this.getNodeParameter('inputType', i) as string;
-                                
+
                                 let fileId: string;
 
                                 if (inputType === 'url') {
@@ -128,7 +128,7 @@ export class GoogleDriveMetadata implements INodeType {
                                 const drive = google.drive({ version: 'v3', auth });
 
                                 const response = await drive.files.get({
-                                        fileId: fileId,
+                                        fileId,
                                         fields: '*',
                                         supportsAllDrives: true,
                                 });
