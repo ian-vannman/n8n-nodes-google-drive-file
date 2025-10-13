@@ -1,12 +1,27 @@
-# n8n-nodes-google-drive-metadata
+# n8n-nodes-google-drive-file-metadata
 
 This is an n8n community node that allows you to fetch complete Google Drive file metadata in your n8n workflows.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
+[Installation](#installation) · [Operations](#operations) · [Credentials](#credentials) · [Usage](#usage) · [License](#license)
+
 ## Installation
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+
+### Community Nodes (Recommended)
+
+1. Go to **Settings > Community Nodes** in n8n
+2. Select **Install a community node**
+3. Enter `n8n-nodes-google-drive-file-metadata`
+4. Click **Install**
+
+### Manual Installation
+
+```bash
+npm install n8n-nodes-google-drive-file-metadata
+```
 
 ## Operations
 
@@ -53,6 +68,12 @@ The node returns all available metadata fields including:
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 - [Google Drive API documentation](https://developers.google.com/drive/api/v3/reference/files)
+- [GitHub Repository](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata)
+- [Report Issues](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata/issues)
+
+## Version History
+
+See [CHANGELOG](https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata/releases) for version history.
 
 ## License
 

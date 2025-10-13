@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-google-drive-metadata",
+  "name": "n8n-nodes-google-drive-file-metadata",
   "version": "1.0.0",
   "description": "n8n node to fetch complete Google Drive file metadata",
   "keywords": [
@@ -9,14 +9,14 @@
     "metadata"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/n8n-nodes-google-drive-metadata",
+  "homepage": "https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata",
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "Ian Vannman",
+    "email": "ian.vannman@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/n8n-nodes-google-drive-metadata.git"
+    "url": "https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata.git"
   },
   "main": "index.js",
   "scripts": {
