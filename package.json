@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-google-drive-file-metadata",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n node to fetch complete Google Drive file metadata",
   "keywords": [
     "n8n-community-node-package",
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata.git"
   },
-  "main": "index.js",
+  "main": "dist/nodes/GoogleDriveMetadata/GoogleDriveMetadata.node.js",
   "scripts": {
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
@@ -28,14 +28,11 @@
     "prepublishOnly": "npm run build && npm run lint"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/GoogleDriveOAuth2Api.credentials.js"
-    ],
+    "credentials": [],
     "nodes": [
       "dist/nodes/GoogleDriveMetadata/GoogleDriveMetadata.node.js"
     ]
@@ -49,9 +46,7 @@
     "tslint": "^6.1.3",
     "typescript": "^5.3.0"
   },
-  "dependencies": {
-    "googleapis": "^128.0.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "n8n-workflow": "*"
   }
