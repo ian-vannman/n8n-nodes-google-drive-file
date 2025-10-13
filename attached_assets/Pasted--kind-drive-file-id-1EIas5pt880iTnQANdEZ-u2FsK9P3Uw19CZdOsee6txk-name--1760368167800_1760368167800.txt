@@ -1,0 +1,411 @@
+[
+  {
+    "kind": "drive#file",
+    "id": "1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk",
+    "name": "Hitta Hem: Building the Moat Machine for the Agentic Age",
+    "mimeType": "application/vnd.google-apps.document",
+    "description": "",
+    "starred": false,
+    "trashed": false,
+    "explicitlyTrashed": false,
+    "properties": {
+      "CloudMigrator-OriginId": "1fRF2E0CFydhafJ_zQbUozc7MygAnz_WEM_tApbcpAvM",
+      "CloudMigrator-OriginHash": "b4c42103db75a02f6ea264437ab7e916adaa6694",
+      "CloudMigrator-Version": "4.5.9.0"
+    },
+    "spaces": [
+      "drive"
+    ],
+    "version": "243",
+    "webViewLink": "https://docs.google.com/document/d/1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk/edit?usp=drivesdk",
+    "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.document",
+    "hasThumbnail": true,
+    "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO9GospS5Vw5nvFn-YfR6Ztncao_Uqt0AvCZOziXBKvi4GVEAh7Sz8swHtPW_x02nDk-v2yQA3LJ_oNKf2nb8jbSSIIY4zxTYUpG87VGt0g4fqqPS_RYlvc11vl=s220",
+    "thumbnailVersion": "30",
+    "viewedByMe": false,
+    "createdTime": "2025-09-13T21:42:01.054Z",
+    "modifiedTime": "2025-09-23T15:13:52.535Z",
+    "modifiedByMe": false,
+    "teamDriveId": "0ANijO-VKUdCPUk9PVA",
+    "driveId": "0ANijO-VKUdCPUk9PVA",
+    "lastModifyingUser": {
+      "kind": "drive#user",
+      "displayName": "Maria Sandgren",
+      "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocKjeoRX0F9et-EZ88NkQ3BC9TtXGFFBIxvm6xGvxG0fw94MvQ=s64",
+      "me": false,
+      "permissionId": "00029797830870159048",
+      "emailAddress": "maria.sandgren@vend.com"
+    },
+    "downloadRestrictions": {
+      "itemDownloadRestriction": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      },
+      "effectiveDownloadRestrictionWithContext": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      }
+    },
+    "capabilities": {
+      "canAddChildren": false,
+      "canAddFolderFromAnotherDrive": false,
+      "canChangeCopyRequiresWriterPermission": false,
+      "canChangeItemDownloadRestriction": false,
+      "canChangeSecurityUpdateEnabled": false,
+      "canChangeViewersCanCopyContent": false,
+      "canComment": true,
+      "canCopy": true,
+      "canDelete": false,
+      "canDeleteChildren": false,
+      "canDisableInheritedPermissions": false,
+      "canDownload": true,
+      "canEdit": true,
+      "canEnableInheritedPermissions": false,
+      "canListChildren": false,
+      "canModifyContent": true,
+      "canModifyContentRestriction": true,
+      "canModifyEditorContentRestriction": true,
+      "canModifyOwnerContentRestriction": false,
+      "canModifyLabels": true,
+      "canMoveChildrenOutOfTeamDrive": false,
+      "canMoveChildrenOutOfDrive": false,
+      "canMoveChildrenWithinTeamDrive": false,
+      "canMoveChildrenWithinDrive": false,
+      "canMoveItemIntoTeamDrive": false,
+      "canMoveItemOutOfTeamDrive": false,
+      "canMoveItemOutOfDrive": false,
+      "canMoveItemWithinTeamDrive": false,
+      "canMoveItemWithinDrive": false,
+      "canMoveTeamDriveItem": false,
+      "canReadLabels": true,
+      "canReadRevisions": true,
+      "canReadTeamDrive": false,
+      "canReadDrive": false,
+      "canRemoveChildren": false,
+      "canRemoveContentRestriction": false,
+      "canRename": true,
+      "canShare": true,
+      "canTrash": false,
+      "canTrashChildren": false,
+      "canUntrash": false
+    },
+    "viewersCanCopyContent": true,
+    "copyRequiresWriterPermission": false,
+    "permissionIds": [
+      "04496191506195710857",
+      "05549078801589779915",
+      "06806262870451622814",
+      "12135100113528300935"
+    ],
+    "hasAugmentedPermissions": true,
+    "size": "66140",
+    "quotaBytesUsed": "66140",
+    "isAppAuthorized": false,
+    "exportLinks": {
+      "application/rtf": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=rtf",
+      "application/vnd.oasis.opendocument.text": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=odt",
+      "text/html": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=html",
+      "application/pdf": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=pdf",
+      "text/x-markdown": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=markdown",
+      "text/markdown": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=markdown",
+      "application/epub+zip": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=epub",
+      "application/zip": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=zip",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=docx",
+      "text/plain": "https://docs.google.com/feeds/download/documents/export/Export?id=1EIas5pt880iTnQANdEZ_u2FsK9P3Uw19CZdOsee6txk&exportFormat=txt"
+    },
+    "linkShareMetadata": {
+      "securityUpdateEligible": false,
+      "securityUpdateEnabled": true
+    },
+    "inheritedPermissionsDisabled": false
+  }
+]
+
+
+[
+  {
+    "kind": "drive#file",
+    "id": "181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk",
+    "name": "Application - Bob the Builder T3 (Responses)",
+    "mimeType": "application/vnd.google-apps.spreadsheet",
+    "starred": false,
+    "trashed": false,
+    "explicitlyTrashed": false,
+    "parents": [
+      "1On2puWhMd0Sf3KjxeRCqrKTNvhUub8hK"
+    ],
+    "spaces": [
+      "drive"
+    ],
+    "version": "304",
+    "webViewLink": "https://docs.google.com/spreadsheets/d/181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk/edit?usp=drivesdk",
+    "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+    "hasThumbnail": true,
+    "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNKdDxicbhluw7QGy7Bw_So2vqKbtM5zisBeXBy1X2keCUq6a6JrIccmrKFxwL-0Sk-PZyEVjf9RoG6WkyM3fWDNUr3N0ov71HhOIE9YRHxKFxSZyq2fqziqrQf=s220",
+    "thumbnailVersion": "35",
+    "viewedByMe": false,
+    "createdTime": "2025-09-25T08:14:25.635Z",
+    "modifiedTime": "2025-10-13T12:55:00.510Z",
+    "modifiedByMe": false,
+    "teamDriveId": "0ANHlmkr_LyheUk9PVA",
+    "driveId": "0ANHlmkr_LyheUk9PVA",
+    "lastModifyingUser": {
+      "kind": "drive#user",
+      "displayName": "Karina Sem Glømmi",
+      "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocIQKjRfHQdMO3GGyhueJTXFXHxOI2J0jVX_R1KveuP2sGmCkw=s64",
+      "me": false,
+      "permissionId": "05212842413609204963",
+      "emailAddress": "karina.glommi@vend.com"
+    },
+    "downloadRestrictions": {
+      "itemDownloadRestriction": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      },
+      "effectiveDownloadRestrictionWithContext": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      }
+    },
+    "capabilities": {
+      "canAddChildren": false,
+      "canAddFolderFromAnotherDrive": false,
+      "canChangeCopyRequiresWriterPermission": false,
+      "canChangeItemDownloadRestriction": false,
+      "canChangeSecurityUpdateEnabled": false,
+      "canChangeViewersCanCopyContent": false,
+      "canComment": true,
+      "canCopy": true,
+      "canDelete": false,
+      "canDeleteChildren": false,
+      "canDisableInheritedPermissions": false,
+      "canDownload": true,
+      "canEdit": true,
+      "canEnableInheritedPermissions": false,
+      "canListChildren": false,
+      "canModifyContent": true,
+      "canModifyContentRestriction": true,
+      "canModifyEditorContentRestriction": true,
+      "canModifyOwnerContentRestriction": false,
+      "canModifyLabels": true,
+      "canMoveChildrenOutOfTeamDrive": false,
+      "canMoveChildrenOutOfDrive": false,
+      "canMoveChildrenWithinTeamDrive": false,
+      "canMoveChildrenWithinDrive": false,
+      "canMoveItemIntoTeamDrive": false,
+      "canMoveItemOutOfTeamDrive": false,
+      "canMoveItemOutOfDrive": false,
+      "canMoveItemWithinTeamDrive": true,
+      "canMoveItemWithinDrive": true,
+      "canMoveTeamDriveItem": false,
+      "canReadLabels": true,
+      "canReadRevisions": true,
+      "canReadTeamDrive": true,
+      "canReadDrive": true,
+      "canRemoveChildren": false,
+      "canRemoveContentRestriction": false,
+      "canRename": true,
+      "canShare": true,
+      "canTrash": true,
+      "canTrashChildren": false,
+      "canUntrash": true
+    },
+    "viewersCanCopyContent": true,
+    "copyRequiresWriterPermission": false,
+    "permissionIds": [
+      "09818011054061287494",
+      "12290245893044495055",
+      "10993252842197760342",
+      "05549078801589779915",
+      "14111420529036379184",
+      "01688629136435163473",
+      "02395652336865850478",
+      "11640772706032947809",
+      "00724308926330466864",
+      "08661266423659582370",
+      "04496191506195710857",
+      "11432257081302137764",
+      "06019996966165420968",
+      "02635005721283044550",
+      "14895939552455047250"
+    ],
+    "hasAugmentedPermissions": false,
+    "size": "78869",
+    "quotaBytesUsed": "78869",
+    "isAppAuthorized": false,
+    "exportLinks": {
+      "application/x-vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=ods",
+      "text/tab-separated-values": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=tsv",
+      "application/pdf": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=pdf",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=xlsx",
+      "text/csv": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=csv",
+      "application/zip": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=zip",
+      "application/vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=181_3p9asZCRECuWTzaIiJG-H7QPFcI6nncr0arHV7Xk&exportFormat=ods"
+    },
+    "linkShareMetadata": {
+      "securityUpdateEligible": false,
+      "securityUpdateEnabled": true
+    },
+    "inheritedPermissionsDisabled": false
+  }
+]
+
+
+[
+  {
+    "kind": "drive#file",
+    "id": "1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A",
+    "name": "Copy of DAI - Impact 25 AI presentation",
+    "mimeType": "application/vnd.google-apps.presentation",
+    "description": "",
+    "starred": false,
+    "trashed": false,
+    "explicitlyTrashed": false,
+    "properties": {
+      "CloudMigrator-Version": "4.5.9.0",
+      "CloudMigrator-OriginId": "165BCq0Yo6wUcpCYQQPja3YjDYdisBfrp44lGLcHNk0A",
+      "CloudMigrator-OriginHash": "a0830cc7734200057064223d13072d90be28e1ac"
+    },
+    "spaces": [
+      "drive"
+    ],
+    "version": "17",
+    "webViewLink": "https://docs.google.com/presentation/d/1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A/edit?usp=drivesdk",
+    "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.presentation",
+    "hasThumbnail": true,
+    "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPSQXFzty6fUVLLwPqXgG6GB0RCU6PRnYcGq72yaLGxJGlyMwtCLV6qI_5r6vmB27D8Rj7Myry_RZHtBbWZvvn4VkcA1ZgoKRqxJclnYze7frqmT7V5OpkKSdUU=s220",
+    "thumbnailVersion": "1",
+    "viewedByMe": false,
+    "createdTime": "2025-09-13T22:05:39.237Z",
+    "modifiedTime": "2025-10-08T07:34:38.547Z",
+    "modifiedByMe": false,
+    "owners": [
+      {
+        "kind": "drive#user",
+        "displayName": "Ian Vännman",
+        "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXA7LoPdK-pJ-juwePkCiAhGB7Z8Ne_MZGbittpeh-lJ7oGnuI=s64",
+        "me": false,
+        "permissionId": "04496191506195710857",
+        "emailAddress": "ian.vannman@vend.com"
+      }
+    ],
+    "lastModifyingUser": {
+      "kind": "drive#user",
+      "displayName": "Ian Vännman",
+      "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXA7LoPdK-pJ-juwePkCiAhGB7Z8Ne_MZGbittpeh-lJ7oGnuI=s64",
+      "me": false,
+      "permissionId": "04496191506195710857",
+      "emailAddress": "ian.vannman@vend.com"
+    },
+    "shared": true,
+    "ownedByMe": false,
+    "downloadRestrictions": {
+      "itemDownloadRestriction": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      },
+      "effectiveDownloadRestrictionWithContext": {
+        "restrictedForReaders": false,
+        "restrictedForWriters": false
+      }
+    },
+    "capabilities": {
+      "canAcceptOwnership": false,
+      "canAddChildren": false,
+      "canAddMyDriveParent": false,
+      "canChangeCopyRequiresWriterPermission": false,
+      "canChangeItemDownloadRestriction": false,
+      "canChangeSecurityUpdateEnabled": false,
+      "canChangeViewersCanCopyContent": false,
+      "canComment": true,
+      "canCopy": true,
+      "canDelete": false,
+      "canDisableInheritedPermissions": false,
+      "canDownload": true,
+      "canEdit": true,
+      "canEnableInheritedPermissions": true,
+      "canListChildren": false,
+      "canModifyContent": true,
+      "canModifyContentRestriction": true,
+      "canModifyEditorContentRestriction": true,
+      "canModifyOwnerContentRestriction": false,
+      "canModifyLabels": true,
+      "canMoveChildrenWithinDrive": false,
+      "canMoveItemIntoTeamDrive": true,
+      "canMoveItemOutOfDrive": true,
+      "canMoveItemWithinDrive": true,
+      "canReadLabels": true,
+      "canReadRevisions": true,
+      "canRemoveChildren": false,
+      "canRemoveContentRestriction": false,
+      "canRemoveMyDriveParent": true,
+      "canRename": true,
+      "canShare": true,
+      "canTrash": false,
+      "canUntrash": false
+    },
+    "viewersCanCopyContent": true,
+    "copyRequiresWriterPermission": false,
+    "writersCanShare": true,
+    "permissions": [
+      {
+        "kind": "drive#permission",
+        "id": "06806262870451622814",
+        "type": "domain",
+        "domain": "vend.com",
+        "role": "writer",
+        "allowFileDiscovery": false,
+        "displayName": "Vend",
+        "permissionDetails": [
+          {
+            "permissionType": "file",
+            "role": "writer",
+            "inherited": false
+          }
+        ]
+      },
+      {
+        "kind": "drive#permission",
+        "id": "04496191506195710857",
+        "type": "user",
+        "emailAddress": "ian.vannman@vend.com",
+        "role": "owner",
+        "displayName": "Ian Vännman",
+        "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXA7LoPdK-pJ-juwePkCiAhGB7Z8Ne_MZGbittpeh-lJ7oGnuI=s64",
+        "permissionDetails": [
+          {
+            "permissionType": "file",
+            "role": "owner",
+            "inherited": false
+          },
+          {
+            "permissionType": "file",
+            "role": "writer",
+            "inherited": true
+          }
+        ],
+        "deleted": false,
+        "pendingOwner": false
+      }
+    ],
+    "permissionIds": [
+      "06806262870451622814",
+      "04496191506195710857"
+    ],
+    "size": "9449839",
+    "quotaBytesUsed": "9449839",
+    "isAppAuthorized": false,
+    "exportLinks": {
+      "application/vnd.oasis.opendocument.presentation": "https://docs.google.com/feeds/download/presentations/Export?id=1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A&exportFormat=odp",
+      "application/pdf": "https://docs.google.com/feeds/download/presentations/Export?id=1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A&exportFormat=pdf",
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation": "https://docs.google.com/feeds/download/presentations/Export?id=1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A&exportFormat=pptx",
+      "text/plain": "https://docs.google.com/feeds/download/presentations/Export?id=1awDaE-Yh3-UdrGqREnK8TvKY2up9wWrY6Xhx2cBbp-A&exportFormat=txt"
+    },
+    "linkShareMetadata": {
+      "securityUpdateEligible": false,
+      "securityUpdateEnabled": true
+    },
+    "inheritedPermissionsDisabled": false
+  }
+]
+
