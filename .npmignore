@@ -1,0 +1,13 @@
+credentials/
+nodes/
+src/
+tsconfig.json
+tslint.json
+gulpfile.js
+*.ts
+!*.d.ts
+.vscode
+.github
+.git
+node_modules
+*.log
