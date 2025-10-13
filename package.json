@@ -1,12 +1,15 @@
 {
   "name": "n8n-nodes-google-drive-file-metadata",
-  "version": "1.0.3",
-  "description": "n8n node to fetch complete Google Drive file metadata",
+  "version": "1.0.4",
+  "description": "n8n node to fetch Google Drive file metadata and content (Docs as Markdown, Sheets as CSV, Slides as Plain Text)",
   "keywords": [
     "n8n-community-node-package",
     "n8n",
     "google-drive",
-    "metadata"
+    "metadata",
+    "content",
+    "markdown",
+    "csv"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata",

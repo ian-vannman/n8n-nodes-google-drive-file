@@ -1,6 +1,6 @@
 # n8n-nodes-google-drive-file-metadata
 
-This is an n8n community node that allows you to fetch complete Google Drive file metadata in your n8n workflows.
+This is an n8n community node that allows you to fetch Google Drive file metadata and content in your n8n workflows. Get complete metadata or export document content as strings (Docs → Markdown, Sheets → CSV, Slides → Plain Text).
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 

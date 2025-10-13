@@ -1,13 +1,13 @@
-# Google Drive File Metadata n8n Node
+# Google Drive File n8n Node
 
 ## Overview
 
-This is a community node package for n8n workflow automation platform that enables users to fetch complete metadata from Google Drive files. The node accepts either a Google Drive file URL or file ID as input and returns comprehensive metadata including file properties, ownership information, sharing settings, and capabilities. Built as an extension to n8n's ecosystem, it leverages the Google Drive API v3 through OAuth2 authentication to provide read-only access to file metadata.
+This is a community node package for n8n workflow automation platform that enables users to fetch both metadata and content from Google Drive files. The node accepts either a Google Drive file URL or file ID as input and can return either complete file metadata or the actual document content as strings. For content fetching, it exports Google Docs as Markdown, Sheets as CSV, and Slides as Plain Text. Built as an extension to n8n's ecosystem, it leverages the Google Drive API v3 through OAuth2 authentication to provide read-only access.
 
 **Package Name**: `n8n-nodes-google-drive-file-metadata`  
 **Repository**: https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata  
 **Author**: Ian Vannman  
-**Version**: 1.0.3
+**Version**: 1.0.4
 
 ## Recent Changes
 
