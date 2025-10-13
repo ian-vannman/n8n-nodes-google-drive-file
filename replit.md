@@ -4,37 +4,29 @@
 
 This is a community node package for n8n workflow automation platform that enables users to fetch both metadata and content from Google Drive files. The node accepts either a Google Drive file URL or file ID as input and can return either complete file metadata or the actual document content as strings. For content fetching, it exports Google Docs as Markdown, Sheets as CSV, and Slides as Plain Text. Built as an extension to n8n's ecosystem, it leverages the Google Drive API v3 through OAuth2 authentication to provide read-only access.
 
-**Package Name**: `n8n-nodes-google-drive-file-text`  
-**Repository**: https://github.com/ian-vannman/n8n-nodes-google-drive-file-text  
+**Package Name**: `n8n-nodes-google-drive-file`  
+**Repository**: https://github.com/ian-vannman/n8n-nodes-google-drive-file  
 **Author**: Ian Vannman  
 **Email**: ian@vannman.com  
-**Version**: 1.0.4
+**Version**: 1.0.0
 
 ## Recent Changes
 
-### Version 1.0.4 (October 2025)
-- **New content fetching operation**: Added "Get Content" operation to fetch document content as strings
+### Version 1.0.0 (October 2025)
+- **Initial release**: Complete n8n community node for Google Drive files
+- **Dual operation support**: "Get Metadata" and "Get Content" operations
+- **Content export**: Fetch document content as strings
   - Google Docs → Markdown (with fallback to plain text)
   - Google Sheets → CSV
   - Google Slides → Plain text
 - **Smart export format selection**: Implements fallback logic to try multiple export formats (text/markdown → text/x-markdown → text/plain for Docs)
-- **Enhanced error handling**: Provides clear error messages for unsupported file types and missing export links
-- **Dual operation support**: Node now supports both "Get Metadata" and "Get Content" operations
-
-### Version 1.0.3 (October 2025)
-- **Fixed URL parsing for all Google Workspace document types**: Rewrote URL parser using proper URL API and path segment logic instead of brittle regex patterns
-- **Comprehensive URL support**: Now handles Google Docs, Sheets, Slides, Forms URLs with all variations:
+- **Enhanced error handling**: Clear error messages for unsupported file types and missing export links
+- **URL parsing**: Robust URL parsing supporting all Google Workspace document URL formats
   - Domain-scoped URLs: `/a/example.com/document/d/ID`
   - User-scoped URLs: `/u/0/file/d/ID`
   - Forms with /d/e/ pattern: `/forms/d/e/ID`
   - Any combination of path segments
-- **More robust parsing**: Uses URL API with segment inspection, properly validates Google domains (docs.google.com, drive.google.com)
-
-### Version 1.0.2 (October 2025)
-- **Critical crash fix**: Removed googleapis library that was causing n8n instance crashes due to dependency conflicts
-- **Switched to n8n's built-in authentication**: Now uses n8n's built-in `googleDriveOAuth2Api` instead of custom credentials
-- **Zero runtime dependencies**: Uses n8n's `requestOAuth2` helper for API calls, eliminating all external runtime dependencies
-- **Fixed package structure**: Main entry now points directly to compiled node file
+- **Zero runtime dependencies**: Uses n8n's built-in `googleDriveOAuth2Api` and `requestOAuth2` helper
 
 ## User Preferences
 

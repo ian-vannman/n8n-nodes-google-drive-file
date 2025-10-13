@@ -1,4 +1,4 @@
-# n8n-nodes-google-drive-file-text
+# n8n-nodes-google-drive-file
 
 This is an n8n community node that allows you to fetch Google Drive file metadata and content in your n8n workflows. Get complete metadata or export document content as strings (Docs → Markdown, Sheets → CSV, Slides → Plain Text).
 
@@ -14,13 +14,13 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 1. Go to **Settings > Community Nodes** in n8n
 2. Select **Install a community node**
-3. Enter `n8n-nodes-google-drive-file-text`
+3. Enter `n8n-nodes-google-drive-file`
 4. Click **Install**
 
 ### Manual Installation
 
 ```bash
-npm install n8n-nodes-google-drive-file-text
+npm install n8n-nodes-google-drive-file
 ```
 
 ## Operations
@@ -99,12 +99,12 @@ Note: The node will attempt to use the preferred export format and fall back to 
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 - [Google Drive API documentation](https://developers.google.com/drive/api/v3/reference/files)
-- [GitHub Repository](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text)
-- [Report Issues](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text/issues)
+- [GitHub Repository](https://github.com/ian-vannman/n8n-nodes-google-drive-file)
+- [Report Issues](https://github.com/ian-vannman/n8n-nodes-google-drive-file/issues)
 
 ## Version History
 
-See [CHANGELOG](https://github.com/ian-vannman/n8n-nodes-google-drive-file-text/releases) for version history.
+See [CHANGELOG](https://github.com/ian-vannman/n8n-nodes-google-drive-file/releases) for version history.
 
 ## License
 

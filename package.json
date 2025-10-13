@@ -1,6 +1,6 @@
 {
-  "name": "n8n-nodes-google-drive-file-text",
-  "version": "1.0.4",
+  "name": "n8n-nodes-google-drive-file",
+  "version": "1.0.0",
   "description": "n8n node to fetch Google Drive file metadata and content (Docs as Markdown, Sheets as CSV, Slides as Plain Text)",
   "keywords": [
     "n8n-community-node-package",
@@ -12,14 +12,14 @@
     "csv"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/ian-vannman/n8n-nodes-google-drive-file-text",
+  "homepage": "https://github.com/ian-vannman/n8n-nodes-google-drive-file",
   "author": {
     "name": "Ian Vannman",
     "email": "ian@vannman.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ian-vannman/n8n-nodes-google-drive-file-text.git"
+    "url": "git+https://github.com/ian-vannman/n8n-nodes-google-drive-file.git"
   },
   "main": "dist/nodes/GoogleDriveFile/GoogleDriveFile.node.js",
   "scripts": {
