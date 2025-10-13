@@ -7,7 +7,24 @@ This is a community node package for n8n workflow automation platform that enabl
 **Package Name**: `n8n-nodes-google-drive-file-metadata`  
 **Repository**: https://github.com/ian-vannman/n8n-nodes-google-drive-file-metadata  
 **Author**: Ian Vannman  
-**Version**: 1.0.0
+**Version**: 1.0.3
+
+## Recent Changes
+
+### Version 1.0.3 (October 2025)
+- **Fixed URL parsing for all Google Workspace document types**: Rewrote URL parser using proper URL API and path segment logic instead of brittle regex patterns
+- **Comprehensive URL support**: Now handles Google Docs, Sheets, Slides, Forms URLs with all variations:
+  - Domain-scoped URLs: `/a/example.com/document/d/ID`
+  - User-scoped URLs: `/u/0/file/d/ID`
+  - Forms with /d/e/ pattern: `/forms/d/e/ID`
+  - Any combination of path segments
+- **More robust parsing**: Uses URL API with segment inspection, properly validates Google domains (docs.google.com, drive.google.com)
+
+### Version 1.0.2 (October 2025)
+- **Critical crash fix**: Removed googleapis library that was causing n8n instance crashes due to dependency conflicts
+- **Switched to n8n's built-in authentication**: Now uses n8n's built-in `googleDriveOAuth2Api` instead of custom credentials
+- **Zero runtime dependencies**: Uses n8n's `requestOAuth2` helper for API calls, eliminating all external runtime dependencies
+- **Fixed package structure**: Main entry now points directly to compiled node file
 
 ## User Preferences
 
@@ -17,10 +34,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Project Structure
 The project follows n8n's community node package conventions with TypeScript-based development:
-- **Source Code**: Located in `nodes/` and `credentials/` directories containing TypeScript implementations
-- **Build Output**: Compiled JavaScript outputs to `dist/` directory
-- **Entry Point**: `index.js` serves as the main module entry, pointing to the compiled node implementation
-- **Assets**: Node icons (SVG/PNG) are copied from source to dist during build
+- **Source Code**: Located in `nodes/GoogleDriveMetadata/` directory containing TypeScript implementation
+- **Build Output**: Compiled JavaScript outputs to `dist/nodes/GoogleDriveMetadata/` directory
+- **Entry Point**: `package.json` main field points directly to `dist/nodes/GoogleDriveMetadata/GoogleDriveMetadata.node.js`
+- **Assets**: Node icon (SVG) is copied from source to dist during build
 
 ### Node Architecture
 **n8n Community Node Pattern**: The implementation extends n8n's `INodeType` interface to integrate seamlessly with the n8n workflow system. The node is registered in `package.json` under the `n8n` field, specifying both the node implementation and credential configuration.
@@ -30,39 +47,51 @@ The project follows n8n's community node package conventions with TypeScript-bas
 **Single Operation Design**: The node implements a focused operation - fetching file metadata. This simplicity reduces complexity and makes the node easier to maintain and test.
 
 ### Authentication Architecture
-**OAuth2 Credential Inheritance**: The custom `GoogleDriveOAuth2Api` credential extends n8n's built-in `googleOAuth2Api` credential type rather than implementing OAuth2 from scratch.
+**Built-in n8n Credentials**: Uses n8n's built-in `googleDriveOAuth2Api` credential type directly (no custom credentials).
 
-**Rationale**: This leverages n8n's existing OAuth2 infrastructure, reducing code duplication and ensuring consistent authentication behavior across Google services.
+**Rationale**: Leveraging n8n's existing OAuth2 infrastructure eliminates dependency conflicts, ensures version compatibility, and provides a consistent authentication experience across all Google services in n8n.
 
-**Read-Only Scope**: The credential is configured with the `drive.metadata.readonly` scope, implementing the principle of least privilege.
+**API Access Pattern**: Uses n8n's `this.helpers.requestOAuth2.call()` helper method for all API requests.
 
-**Pros**: 
-- Secure by default - cannot modify files
-- Reduces risk of accidental data modification
-- Simpler permission model for users
+**Pros**:
+- No external dependencies - prevents crashes and conflicts
+- Automatic OAuth2 token management handled by n8n
+- Consistent with other n8n Google nodes
+- No custom credential maintenance required
 
-**Cons**: 
-- Cannot be used for write operations
-- Requires separate credentials if write access is needed later
+**Read-Only Scope**: Configured with `drive.metadata.readonly` scope (principle of least privilege)
 
 ### Data Processing
-**File ID Extraction**: The node implements flexible input handling through pattern matching, supporting multiple Google Drive URL formats (file URLs, folder URLs, direct IDs).
+**File ID Extraction**: The node implements robust URL parsing using the URL API and path segment logic, supporting all Google Workspace document URL formats:
+- **Google Docs, Sheets, Slides, Forms**: `/document/d/ID`, `/spreadsheets/d/ID`, `/presentation/d/ID`, `/forms/d/ID`, `/forms/d/e/ID`
+- **Domain-scoped URLs**: `/a/example.com/document/d/ID`
+- **User-scoped URLs**: `/u/0/file/d/ID`
+- **Folder URLs**: `/drive/folders/ID` or `/drive/u/0/folders/ID`
+- **Query parameter URLs**: `?id=ID`
+- **Direct file IDs**: Just the ID string
 
-**Rationale**: Users often copy URLs from their browser, so supporting multiple formats improves user experience and reduces configuration errors.
+**Implementation Approach**: 
+1. Uses URL API to parse and validate Google domains (docs.google.com, drive.google.com)
+2. Splits pathname into segments
+3. Finds `/d/` or `/d/e/` pattern in path
+4. Extracts the file ID that follows
 
-**Google APIs Client Library**: Uses the official `googleapis` npm package to interact with Google Drive API v3.
+**Rationale**: Path segment logic is more maintainable and robust than complex regex patterns. Handles all current and future URL variations without brittle pattern matching.
 
-**Alternatives Considered**: Direct REST API calls via HTTP requests
+**API Communication**: Uses n8n's `requestOAuth2` helper for direct REST API calls to Google Drive API v3.
 
-**Chosen Approach Pros**:
-- Type safety through TypeScript definitions
-- Automatic handling of authentication token refresh
-- Built-in error handling and retry logic
-- Simpler API surface
+**Alternatives Considered**: googleapis npm package
 
-**Cons**:
-- Larger dependency size
-- Additional abstraction layer
+**Why requestOAuth2 was chosen**:
+- Zero external dependencies - prevents crashes
+- Lightweight - no large dependency tree
+- Direct control over API requests
+- Perfect integration with n8n's OAuth2 system
+
+**Cons of googleapis library** (why it was removed):
+- Caused n8n instance crashes due to dependency conflicts
+- Large dependency size with nested packages
+- Unnecessary abstraction for simple metadata fetch
 
 ### Build System
 **TypeScript Compilation**: Source code is written in TypeScript and compiled to JavaScript for distribution.
@@ -84,13 +113,8 @@ The project follows n8n's community node package conventions with TypeScript-bas
 
 ## External Dependencies
 
-### Core Runtime Dependencies
-- **googleapis** (v128.0.0+): Official Google APIs client library for Node.js
-  - Purpose: Provides typed interfaces to Google Drive API v3
-  - Used for: File metadata retrieval, OAuth2 token management
-  
-- **n8n-core** (v1.0.0+): n8n core functionality library
-  - Purpose: Core utilities and helpers for n8n node development
+### Runtime Dependencies
+**None** - The package has zero runtime dependencies to prevent conflicts and crashes in n8n instances.
 
 ### Development Dependencies
 - **n8n-workflow** (v1.0.0+): n8n workflow type definitions and interfaces
