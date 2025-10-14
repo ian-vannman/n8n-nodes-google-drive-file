@@ -249,6 +249,7 @@ export class GoogleDriveFile implements INodeType {
                                                         fileName: metadata.name,
                                                         mimeType,
                                                         exportFormat: exportInfo.mimeType,
+                                                        modifiedTime: metadata.modifiedTime,
                                                         content,
                                                 },
                                                 pairedItem: { item: i },

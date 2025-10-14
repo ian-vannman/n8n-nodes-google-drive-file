@@ -86,6 +86,7 @@ Returns a JSON object with:
 - `fileName`: The name of the file
 - `mimeType`: The Google file type
 - `exportFormat`: The format used for export (text/markdown, text/csv, or text/plain)
+- `modifiedTime`: When the file was last modified (ISO 8601 format)
 - `content`: The file content as a string
 
 **Supported file types:**
