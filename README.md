@@ -109,7 +109,8 @@ Returns a JSON object with:
 - Google Slides (exported as Plain Text)
 
 **Image handling for Google Docs:**
-- By default, inline base64 images are replaced with simple references to keep output size small
+- Supports both inline (`![](data:image/...)`) and reference-style (`[imageN]: <data:image/...>`) base64 images
+- By default, base64 images are replaced with simple references (e.g., `image-0`) to keep output size small
 - Enable "Include Images" to extract and return the actual image data separately
 - Images are always removed from inline markdown to improve readability
 

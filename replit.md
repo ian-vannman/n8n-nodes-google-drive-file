@@ -19,6 +19,10 @@ This is a community node package for n8n workflow automation platform that enabl
   - Google Docs → Markdown (with fallback to plain text)
   - Google Sheets → CSV
   - Google Slides → Plain text
+- **Image extraction for Google Docs**: Optional feature to extract base64 images from markdown
+  - Supports both inline format `![](data:image/...)` and reference-style format `[imageN]: <data:image/...>`
+  - Default: disabled (images replaced with simple references to keep output small)
+  - When enabled: returns images array with id, format, and base64 data
 - **Smart export format selection**: Implements fallback logic to try multiple export formats (text/markdown → text/x-markdown → text/plain for Docs)
 - **Enhanced error handling**: Clear error messages for unsupported file types and missing export links
 - **URL parsing**: Robust URL parsing supporting all Google Workspace document URL formats

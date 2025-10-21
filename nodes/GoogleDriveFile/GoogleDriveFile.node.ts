@@ -81,22 +81,40 @@ interface ImageExtractionResult {
 function extractImagesFromMarkdown(markdown: string, includeImages: boolean): ImageExtractionResult {
         const images: ExtractedImage[] = [];
         let imageIndex = 0;
+        const referenceMap: { [key: string]: string } = {};
 
-        const imagePattern = /!\[([^\]]*)\]\(data:image\/([^;]+);base64,([A-Za-z0-9+/=]+)\)/g;
+        const inlineImagePattern = /!\[([^\]]*)\]\(data:image\/([^;]+);base64,([A-Za-z0-9+/=]+)\)/g;
+        const referenceImagePattern = /\[([^\]]+)\]:\s*<data:image\/([^;]+);base64,([A-Za-z0-9+/=]+)>/g;
 
-        const cleanedContent = markdown.replace(imagePattern, (match, alt, format, base64Data) => {
-                const imageId = `image-${imageIndex}`;
+        let cleanedContent = markdown.replace(referenceImagePattern, (match, refId, format, base64Data) => {
+                const newImageId = `image-${imageIndex}`;
+                referenceMap[refId] = newImageId;
 
                 if (includeImages) {
                         images.push({
-                                id: imageId,
+                                id: newImageId,
                                 format,
                                 data: base64Data,
                         });
                 }
 
                 imageIndex++;
-                return `![${alt}](${imageId})`;
+                return `[${refId}]: ${newImageId}`;
+        });
+
+        cleanedContent = cleanedContent.replace(inlineImagePattern, (match, alt, format, base64Data) => {
+                const newImageId = `image-${imageIndex}`;
+
+                if (includeImages) {
+                        images.push({
+                                id: newImageId,
+                                format,
+                                data: base64Data,
+                        });
+                }
+
+                imageIndex++;
+                return `![${alt}](${newImageId})`;
         });
 
         return {
