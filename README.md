@@ -55,7 +55,7 @@ This node uses the built-in **Google Drive OAuth2 API** credentials in n8n. You'
 
 ## Usage
 
-1. Add the "Google Drive Metadata" node to your workflow
+1. Add the "Google Drive File" node to your workflow
 2. Connect your Google Drive OAuth2 API credentials
 3. Select the operation:
    - **Get Metadata**: Returns complete file metadata
@@ -63,7 +63,17 @@ This node uses the built-in **Google Drive OAuth2 API** credentials in n8n. You'
 4. Choose input type:
    - **File URL**: Paste the full Google Drive file URL
    - **File ID**: Enter just the file ID
-5. Execute the node
+5. For Get Content operation, optionally enable **Include Images** to extract images separately (see warning below)
+6. Execute the node
+
+### Image Extraction (Get Content only)
+
+When fetching content from Google Docs, you can choose whether to include images:
+
+- **Include Images = false** (default): Images are removed from the markdown, and inline base64 data is replaced with simple references like `![alt](image-0)`. No image data is returned. This keeps output size small.
+- **Include Images = true**: Images are extracted and returned in a separate `images` array with base64 data. The markdown content still uses simple references.
+
+⚠️ **Warning**: Images can make the output significantly larger, which may impact n8n performance. Only enable this option if you need the image data.
 
 ## Output
 
@@ -87,12 +97,21 @@ Returns a JSON object with:
 - `mimeType`: The Google file type
 - `exportFormat`: The format used for export (text/markdown, text/csv, or text/plain)
 - `modifiedTime`: When the file was last modified (ISO 8601 format)
-- `content`: The file content as a string
+- `content`: The file content as a string (with inline base64 images replaced by references like `image-0`)
+- `images`: Array of extracted images (only present when "Include Images" is enabled and images exist)
+  - `id`: Reference ID used in the markdown (e.g., "image-0")
+  - `format`: Image format (e.g., "png", "jpeg", "gif")
+  - `data`: Base64-encoded image data
 
 **Supported file types:**
 - Google Docs (exported as Markdown, with fallback to Plain Text)
 - Google Sheets (exported as CSV)
 - Google Slides (exported as Plain Text)
+
+**Image handling for Google Docs:**
+- By default, inline base64 images are replaced with simple references to keep output size small
+- Enable "Include Images" to extract and return the actual image data separately
+- Images are always removed from inline markdown to improve readability
 
 Note: The node will attempt to use the preferred export format and fall back to alternative formats if the preferred one is not available.
 

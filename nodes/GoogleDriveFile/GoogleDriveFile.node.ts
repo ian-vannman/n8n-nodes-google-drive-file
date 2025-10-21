@@ -67,6 +67,44 @@ function findAvailableExportLink(exportLinks: any, preferredMimeTypes: string[])
         return null;
 }
 
+interface ExtractedImage {
+        id: string;
+        format: string;
+        data: string;
+}
+
+interface ImageExtractionResult {
+        content: string;
+        images: ExtractedImage[];
+}
+
+function extractImagesFromMarkdown(markdown: string, includeImages: boolean): ImageExtractionResult {
+        const images: ExtractedImage[] = [];
+        let imageIndex = 0;
+
+        const imagePattern = /!\[([^\]]*)\]\(data:image\/([^;]+);base64,([A-Za-z0-9+/=]+)\)/g;
+
+        const cleanedContent = markdown.replace(imagePattern, (match, alt, format, base64Data) => {
+                const imageId = `image-${imageIndex}`;
+
+                if (includeImages) {
+                        images.push({
+                                id: imageId,
+                                format,
+                                data: base64Data,
+                        });
+                }
+
+                imageIndex++;
+                return `![${alt}](${imageId})`;
+        });
+
+        return {
+                content: cleanedContent,
+                images,
+        };
+}
+
 export class GoogleDriveFile implements INodeType {
         description: INodeTypeDescription = {
                 displayName: 'Google Drive File',
@@ -151,6 +189,18 @@ export class GoogleDriveFile implements INodeType {
                                 required: true,
                                 placeholder: '1a2b3c4d5e6f7g8h9i0j',
                                 description: 'The Google Drive file ID',
+                        },
+                        {
+                                displayName: 'Include Images',
+                                name: 'includeImages',
+                                type: 'boolean',
+                                displayOptions: {
+                                        show: {
+                                                operation: ['getContent'],
+                                        },
+                                },
+                                default: false,
+                                description: 'Whether to extract and return images separately from the markdown content. WARNING: Images can make the output significantly larger, which may impact n8n performance.',
                         },
                 ],
         };
@@ -243,15 +293,34 @@ export class GoogleDriveFile implements INodeType {
                                                 contentOptions,
                                         ) as string;
 
+                                        const includeImages = this.getNodeParameter('includeImages', i, false) as boolean;
+
+                                        const isMarkdownExport = exportInfo.mimeType === 'text/markdown' || exportInfo.mimeType === 'text/x-markdown';
+
+                                        let finalContent = content;
+                                        let images: ExtractedImage[] = [];
+
+                                        if (isMarkdownExport) {
+                                                const extractionResult = extractImagesFromMarkdown(content, includeImages);
+                                                finalContent = extractionResult.content;
+                                                images = extractionResult.images;
+                                        }
+
+                                        const outputJson: any = {
+                                                fileId,
+                                                fileName: metadata.name,
+                                                mimeType,
+                                                exportFormat: exportInfo.mimeType,
+                                                modifiedTime: metadata.modifiedTime,
+                                                content: finalContent,
+                                        };
+
+                                        if (includeImages && images.length > 0) {
+                                                outputJson.images = images;
+                                        }
+
                                         returnData.push({
-                                                json: {
-                                                        fileId,
-                                                        fileName: metadata.name,
-                                                        mimeType,
-                                                        exportFormat: exportInfo.mimeType,
-                                                        modifiedTime: metadata.modifiedTime,
-                                                        content,
-                                                },
+                                                json: outputJson,
                                                 pairedItem: { item: i },
                                         });
                                 }
