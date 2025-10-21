@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-google-drive-file",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n node to fetch Google Drive file metadata and content (Docs as Markdown, Sheets as CSV, Slides as Plain Text)",
   "keywords": [
     "n8n-community-node-package",
